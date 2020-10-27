@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -51,5 +52,12 @@ public class StudentRepository {
         }
 
         return studentEntity;
+    }
+
+    public Optional<StudentEntity> findByName(String name) {
+        return studentEntities
+                .stream()
+                .filter(studentEntity -> studentEntity.getName().equals(name))
+                .findAny();
     }
 }

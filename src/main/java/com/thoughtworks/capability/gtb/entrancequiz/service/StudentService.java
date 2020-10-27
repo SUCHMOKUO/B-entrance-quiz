@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb.entrancequiz.service;
 
 import com.thoughtworks.capability.gtb.entrancequiz.dto.StudentDto;
+import com.thoughtworks.capability.gtb.entrancequiz.entity.StudentEntity;
 import com.thoughtworks.capability.gtb.entrancequiz.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,9 @@ public class StudentService {
                 .stream()
                 .map(StudentDto::from)
                 .collect(Collectors.toList());
+    }
+
+    public StudentDto addStudent(StudentDto studentDto) {
+        return StudentDto.from(studentRepository.save(StudentEntity.from(studentDto)));
     }
 }

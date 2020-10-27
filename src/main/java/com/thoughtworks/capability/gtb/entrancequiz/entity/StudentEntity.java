@@ -1,5 +1,6 @@
 package com.thoughtworks.capability.gtb.entrancequiz.entity;
 
+import com.thoughtworks.capability.gtb.entrancequiz.dto.StudentDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,11 @@ public class StudentEntity {
     private Integer id;
 
     private String name;
+
+    public static StudentEntity from(StudentDto studentDto) {
+        return StudentEntity.builder()
+                .id(studentDto.getId())
+                .name(studentDto.getName())
+                .build();
+    }
 }
