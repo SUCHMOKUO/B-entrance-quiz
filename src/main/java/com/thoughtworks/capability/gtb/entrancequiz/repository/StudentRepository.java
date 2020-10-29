@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @Repository
 public class StudentRepository {
 
+    // TODO GTB-工程实践: - 推荐使用Map保存学员数据
     private final Set<StudentEntity> studentEntities = new HashSet<StudentEntity>(36) {{
         add(new StudentEntity(1, "成吉思汗"));
         add(new StudentEntity(2, "鲁班七号"));
@@ -45,6 +46,7 @@ public class StudentRepository {
 
         if (entityHasNoId) {
             studentEntities.add(studentEntity);
+            // TODO GTB-工程实践: - 计算id的方式不够健壮，可以使用字段保存最大id
             studentEntity.setId(studentEntities.size());
         } else {
             studentEntities.remove(studentEntity);

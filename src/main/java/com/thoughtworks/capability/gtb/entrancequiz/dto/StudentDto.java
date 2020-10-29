@@ -20,6 +20,7 @@ public class StudentDto extends BaseDto {
     @Min(1)
     private Integer id;
 
+    // TODO GTB-知识点: + 对参数进行了校验，不错
     @NotEmpty
     private String name;
 
